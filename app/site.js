@@ -1,8 +1,8 @@
 (function($){
 
 
-	$(document).ready(function(){
-		//$.stellar();
+	$(function(){
+		$.stellar({hideDistantElements: false});
 	});
 	
 

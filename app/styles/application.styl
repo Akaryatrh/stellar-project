@@ -31,10 +31,41 @@ body
  *  LAYOUT
  */
 
-
-section
-    height 400px
+#container
     position relative
 
-    &:nth-child(even)        
-        background red
+    section
+        height 400px
+        position relative
+
+        &:nth-child(even)        
+            background red
+
+
+        &:nth-child(1)
+            height 700px
+            background url('/images/loreal-hair.jpg') no-repeat center top
+
+            .elements
+                .round
+                    border-radius 25px
+                    width 50px
+                    height 50px
+                    background red
+                    position absolute
+
+                    &:nth-child(1)
+                        left 50%
+                        width 30px
+                        height 30px
+
+                    &:nth-child(2)
+                        left 45%
+                        width 20px
+                        height 20px
+
+                    &:nth-child(3)
+                        left 25%
+                        border-radius 75px
+                        width 150px
+                        height 150px
