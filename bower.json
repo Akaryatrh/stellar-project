@@ -1,0 +1,15 @@
+{
+  "name": "your-app",
+  "version": "0.0.1",
+  "main": "public/app.js",
+  "dependencies": {
+    "console-polyfill": "~0.1.0",
+    "jquery": "~2.0.3",
+    "normalize-css": "~2.1.2",
+    "jquery.stellar": "~0.6.2",
+    "jquery-waypoints": "~2.0.3"
+  },
+  "overrides": {
+  	"jquery-waypoints" : {"main": "waypoints.js"}
+  }
+}

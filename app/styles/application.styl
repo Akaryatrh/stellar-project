@@ -1,0 +1,40 @@
+/*
+ * nib is a powerful lib for stylus that provides cross-browser css3 mixins.
+ * No more vendor prefixes. http://visionmedia.github.com/nib/
+ */
+@import "nib"
+@import 'fonts'
+
+
+fontFaces()
+
+*
+*:after
+*::before
+    box-sizing border-box
+
+
+/*
+ * GLOBAL STYLES
+ */
+
+body
+    background #F3F3F3
+
+/* Set font icon with data-icon value */
+[data-icon]:before
+    yahgoIcon()
+
+
+
+/*
+ *  LAYOUT
+ */
+
+
+section
+    height 400px
+    position relative
+
+    &:nth-child(even)        
+        background red
