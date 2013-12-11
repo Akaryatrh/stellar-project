@@ -19,11 +19,109 @@ fontFaces()
  */
 
 body
-    background #F3F3F3
+    background #fff
 
 /* Set font icon with data-icon value */
 [data-icon]:before
     yahgoIcon()
+
+
+/*
+ *  HEADER
+ */
+header
+    position fixed
+    top 0
+    width 100%
+    height 70px
+    background #fff
+    box-shadow 0 3px 5px rgba(0,0,0,0.2) 
+    z-index 2
+
+
+
+    // SocialBar
+    #socialBar
+        background #000
+        color #999
+        font 11px/20px Arial, sans-serif
+        text-align center
+
+
+    // Logo
+    h1
+        background url('/images/puretrend_logo_dark.png') no-repeat center
+        text-indent -9999px
+        width 150px
+        float left
+        height 50px
+        margin 0
+        margin 0 0 0 25px
+
+    /*
+     * Navigation
+    */
+    nav
+        margin 0 auto
+        overflow auto
+
+        // Menus
+        ul
+            text-align center
+            margin 0 285px 0 175px
+            line-height 50px
+
+            li
+                display inline-block
+                &:after
+                    content "|"
+                    color #ccc
+                    padding 0 5px 0 10px
+                    noveCento(noveLight, 16px, #888, 50px)
+                &:last-child:after
+                    content ""
+
+                // Links
+                a
+                    text-decoration none
+                    noveCento(noveLight, 16px, #888, 50px)
+
+                    &.sublime
+                        color #ff3300
+
+                    &:hover
+                        color #000
+
+    /* Search box */
+    #search
+        position absolute
+        background #eee
+        border-left 3px solid #d5d5d5
+        height 50px
+        width 285px
+        line-height 50px
+        top 20px
+        right 0
+
+        button
+            float left
+            background transparent url('/images/search.png') no-repeat center
+            text-indent -9999px
+            height 50px
+            width 50px
+            cursor pointer
+            border none
+
+        input
+            line-height 50px
+            border none
+            padding 0
+            background none
+
+
+
+
+
 
 
 

@@ -4,29 +4,30 @@
 @import "nib"
 
 font-url = '/fonts/'
-noveN = 'Novecentowide-Normal'
-noveM = 'Novecentowide-Medium'
-yahgo = 'yahgo'
+noveBold = 'Novecentosanswide-Bold'
+noveBook = 'Novecentosanswide-Book'
+noveLight = 'Novecentosanswide-Light'
 
 fontFaces()
 	@font-face
-		font-family: noveN
-		src: url(font-url + '27D6D3_0_0.eot')
-		src: url(font-url + '27D6D3_0_0.eot?#iefix') format('embedded-opentype'),url(font-url + '27D6D3_0_0.woff') format('woff'),url(font-url + '27D6D3_0_0.ttf') format('truetype'),url(font-url + '27D6D3_0_0.svg#wf') format('svg')
+		font-family: noveBold
+		src: url(font-url + '294AF4_bold.eot')
+		src: url(font-url + '294AF4_bold.eot?#iefix') format('embedded-opentype'),url(font-url + '294AF4_bold.woff') format('woff'),url(font-url + '294AF4_bold.ttf') format('truetype'),url(font-url + '294AF4_bold.svg#wf') format('svg')
 		font-weight normal
 		font-style normal
-	  
+
 	@font-face
-		font-family: noveM
-		src: url(font-url + '27D6D3_1_0.eot')
-		src: url(font-url + '27D6D3_1_0.eot?#iefix') format('embedded-opentype'),url(font-url + '27D6D3_1_0.woff') format('woff'),url(font-url + '27D6D3_1_0.ttf') format('truetype'),url(font-url + '27D6D3_1_0.svg#wf') format('svg')
+		font-family: noveBook
+		src: url(font-url + '294AF4_book.eot')
+		src: url(font-url + '294AF4_book.eot?#iefix') format('embedded-opentype'),url(font-url + '294AF4_book.woff') format('woff'),url(font-url + '294AF4_book.ttf') format('truetype'),url(font-url + '294AF4_book.svg#wf') format('svg')
 		font-weight normal
 		font-style normal
-		
+
+
 	@font-face
-		font-family: yahgo
-		src:url(font-url + 'yahgo.eot')
-		src:url(font-url + 'yahgo.eot?#iefix') format('embedded-opentype'), url(font-url + 'yahgo.woff') format('woff'), url(font-url + 'yahgo.ttf') format('truetype'), url(font-url + 'yahgo.svg#yahgo') format('svg')
+		font-family: noveLight
+		src: url(font-url + '294AF4_light.eot')
+		src: url(font-url + '294AF4_light.eot?#iefix') format('embedded-opentype'),url(font-url + '294AF4_light.woff') format('woff'),url(font-url + '294AF4_light.ttf') format('truetype'),url(font-url + '294AF4_light.svg#wf') format('svg')
 		font-weight normal
 		font-style normal
 
@@ -36,14 +37,3 @@ noveCento(family = noveN, Size = 12px, Color = #666, LineHeight = normal, TextSh
 	color Color
 	unless TextShadow == false
 		text-shadow TextShadow
-		
-
-yahgoIcon()
-	font-family yahgo
-	content attr(data-icon)
-	speak none
-	font-weight normal
-	font-variant normal
-	text-transform none
-	line-height 1
-	-webkit-font-smoothing antialiased
