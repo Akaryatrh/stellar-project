@@ -1,56 +1,55 @@
-/*
- * nib is a powerful lib for stylus that provides cross-browser css3 mixins.
- * No more vendor prefixes. http://visionmedia.github.com/nib/
- */
+/* No more vendor prefixes. http://visionmedia.github.com/nib/ */
 @import "nib"
 @import 'fonts'
 
 
-fontFaces()
 
+*:before,
+*:after,
 *
-*:after
-*::before
     box-sizing border-box
 
+fontFaces()
 
 /*
  * GLOBAL STYLES
  */
 
 body
-    background #fff
+    background #f3f3f3
 
-/* Set font icon with data-icon value */
-[data-icon]:before
-    yahgoIcon()
+
+// SocialBar
+#socialBar
+    background #000
+    color #999
+    font 11px/20px Arial, sans-serif
+    text-align center
+    position absolute
+    top 0
+    width 100%
+    z-index 1
 
 
 /*
  *  HEADER
  */
 header
-    position fixed
-    top 0
-    width 100%
-    height 70px
+    box-shadow 0 3px 5px rgba(0,0,0,0.2)
     background #fff
-    box-shadow 0 3px 5px rgba(0,0,0,0.2) 
-    z-index 2
+    position absolute
+    z-index 99
+    width 100%
 
-
-
-    // SocialBar
-    #socialBar
-        background #000
-        color #999
-        font 11px/20px Arial, sans-serif
-        text-align center
+    &.scrolled
+        position fixed
+        top 0
+    
 
 
     // Logo
     h1
-        background url('/images/puretrend_logo_dark.png') no-repeat center
+        background url('../images/puretrend_logo_dark.png') no-repeat center
         text-indent -9999px
         width 150px
         float left
@@ -69,7 +68,6 @@ header
         ul
             text-align center
             margin 0 285px 0 175px
-            line-height 50px
 
             li
                 display inline-block
@@ -77,20 +75,21 @@ header
                     content "|"
                     color #ccc
                     padding 0 5px 0 10px
-                    noveCento(noveLight, 16px, #888, 50px)
+                    noveCento(noveLight, 17px, #888, 50px)
                 &:last-child:after
                     content ""
 
                 // Links
                 a
                     text-decoration none
-                    noveCento(noveLight, 16px, #888, 50px)
+                    noveCento(noveLight, 17px, #888, 50px)
 
                     &.sublime
                         color #ff3300
 
                     &:hover
                         color #000
+
 
     /* Search box */
     #search
@@ -100,70 +99,86 @@ header
         height 50px
         width 285px
         line-height 50px
-        top 20px
+        top 0
         right 0
 
         button
             float left
-            background transparent url('/images/search.png') no-repeat center
+            background transparent url('../images/search.png') no-repeat center
             text-indent -9999px
             height 50px
             width 50px
             cursor pointer
             border none
+            padding 0
 
         input
-            line-height 50px
             border none
             padding 0
             background none
+            // old safari ios support
+            width -webkit-calc(100% - 50px)
+            width calc(100% - 50px)
+            noveCento(noveBook, 15px, #888, 50px)
 
+        &:hover
+        &:focus
+            background #f9f9f9
 
-
-
+            input
+                color #333
 
 
 
 
 /*
- *  LAYOUT
+ * Responsive rules
  */
 
-#container
-    position relative
+/* From 1050px to 1299px */
+@media screen and (min-width: 1000px) and (max-width: 1400px)
+    header
 
-    section
-        height 400px
-        position relative
+        nav ul
+            margin 0 150px 0 175px
 
-        &:nth-child(even)        
-            background red
+            li
+                &:after
+                    padding 0 0 0 5px
+                    noveCento(noveBook, 13px, #888, 50px)
+
+                // Links
+                a
+                    noveCento(noveBook, 13px, #888, 50px)
+
+        #search
+            width 150px
+            input
+                noveCento(noveBook, 13px, #888, 50px)
 
 
-        &:nth-child(1)
-            height 700px
-            background url('/images/loreal-hair.jpg') no-repeat center top
 
-            .elements
-                .round
-                    border-radius 25px
-                    width 50px
-                    height 50px
-                    background red
-                    position absolute
+/* From 481px to 1049px */
+@media screen and (min-width: 481px) and (max-width: 999px)
+    header
+        h1
+            height 50px
+            background-size contain
 
-                    &:nth-child(1)
-                        left 50%
-                        width 30px
-                        height 30px
+        nav ul
+            margin 0 150px 0 175px
 
-                    &:nth-child(2)
-                        left 45%
-                        width 20px
-                        height 20px
+            li
+                &:after
+                    padding 0 0 0 5px
+                    noveCento(noveBook, 13px, #888, normal)
 
-                    &:nth-child(3)
-                        left 25%
-                        border-radius 75px
-                        width 150px
-                        height 150px
+                // Links
+                a
+                    noveCento(noveBook, 13px, #888, normal)
+
+        #search
+            width 150px
+            height auto
+            input
+                noveCento(noveBook, 13px, #888, normal)

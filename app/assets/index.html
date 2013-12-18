@@ -3,22 +3,38 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
-	<head>
-	  <meta charset="utf-8">
-	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	  <title>Test parallax</title>
-	  <meta name="viewport" content="width=device-width">
-	  <link rel="stylesheet" href="/stylesheets/app.css">
-	  <script src="/javascripts/vendor.js"></script>
-	  <script src="/javascripts/app.js"></script>
-	  <script>require('site');</script>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>POC Home PureTrend</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="stylesheets/app.css">
+	<script src="javascripts/vendor.js"></script>
+	<script src="javascripts/app.js"></script>
+	<script>require('site');</script>
 
-	</head>
+</head>
 
-	<body>
+<body>
+
+	<!-- topbar -->
+	<div id="socialBar">Se connecter avec Facebook | S’identifier | Créer un compte</div>
+	
+	<div id="container">
+
+		<!-- MODULE 1 -->
+		<section id="module_1" class="module" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="20" style="background-image:url('images/slide_1/burberry.jpg');">
+			<div class="elements">
+				<div class="element">
+					<img src="images/slide_1/accroche.png" alt="" />
+				</div>
+
+			</div>
+		</section>
+
+		<!-- HEADER -->
 		<header>
-			<!-- topbar -->
-			<div id="socialBar">Se connecter avec Facebook | S’identifier | Créer un compte</div>
+			
 			<nav>
 				<!-- logo -->
 				<h1>Home</h1>
@@ -38,25 +54,230 @@
 				<!-- search -->
 				<div id="search">
 					<button>Search</button>
-					<input type="text" placeholder="RECHERCHE"/>
+					<input type="text" placeholder="RECHERCHE" />
 				</div>
 			</nav>
-			
-
-			
 		</header>
 
-		<div id="container">
-			<section id="module_1" data-stellar-background-ratio="0.5">
+		<!-- MODULE 2 -->
+		<section id="module_2" class="module">
+
+
+			<div class="arrows">
+				<div class="left arrow">Précédent</div>
+				<div class="right arrow">Suivant</div>
+			</div>
+
+
+			<div class="centerNav">
+				<ul class="navigation">
+					<li class="active"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>	
+			</div>
+
+
+			<ul class="diaporama">
+				<li style="background-image:url('images/slide_2/models.jpg');">
+					<div class="legend">
+						<a>
+							<h2>L'abécédaire des tendances</h2>
+							<p class="desc">Printemps-Eté 2014</p>
+						</a>
+					</div>
+				</li>
+
+				<li style="background-image:url('images/slide_2/bardot.jpg');">
+					<div class="legend">
+						<a>
+							<h2>Brigitte Bardot</h2>
+							<p class="desc">l'Eternelle </p>
+						</a>
+					</div>
+				</li>
+
+				<li style="background-image:url('images/slide_2/diademe.jpg');">
+					<div class="legend">
+						<a>
+							<h2>Tiare et diadème</h2>
+							<p class="desc">Royal !</p>
+						</a>
+					</div>
+				</li>
+
+				<li style="background-image:url('images/slide_2/shazam.jpg');">
+					<div class="legend">
+						<a>
+							<h2>Styles Eyes</h2>
+							<p class="desc">le Shazam de la mode</p>
+						</a>
+					</div>
+				</li>
+
+				<li style="background-image:url('images/slide_2/british_fashion_awards.jpg');">
+					<div class="legend">
+						<a>
+							<h2>Le meilleur des British Fashion Awards 2013</h2>
+						</a>
+					</div>
+				</li>
+			</ul>
+
+		</section>
+
+
+		<!-- MODULE 3 -->
+		<section id="module_3" class="module">
+			<video loop="true" preload="auto" webkit-playsinline controls>
+			  <source src="videos/video.mp4" type="video/mp4">
+			</video>
+		</section>
+
+
+		<!-- MODULE 4 -->
+		<section id="module_4" class="module">
+			<div class="news">
+				<div class="title">Actualités</div>
+				<article>
+					<h2><strong>MICHELLE OBAMA,</strong> DES ÉPAULES NUES POUR UN LOOK AUDACIEUX AU KENNEDY CENTER</h2>
+					<div class="imgContainer">
+						<img src="images/slide_4/obama.jpg" alt="">
+						<p class="desc">Dimanche 8 décembre, Michelle Obama et Barack Obama ont accueilli les lauréats du Centre Kennedy. Comme tous les ans, c'est en grande pompe et dans un décor de rêve que les lauréats, des hommes et des femmes pratiquant un art de la scène, ont reçu un prix pour leur contribution à la culture américaine…</p>
+					</div>
+				</article>
+
+				<article>
+					<h2><strong>DIANE KRUGER</strong> EN ROBE TRANSPARENTE : TERRIBLEMENT SENSUELLE AUX EFA BERLIN</h2>
+					<div class="imgContainer">
+						<img src="images/slide_4/kruger.jpg" alt="">
+						<p class="desc">Diane Kruger n'est pas drôle. Canon, toujours impeccablement habillée, bien coiffée, joliment maquillée, impossible de trouver à redire sur les looks de la stars et encore moins de se moquer. La belle Allemande est tout simplement du genre parfaite. Il n'y a qu'à la voir à Berlin ce samedi 7 décembre où elle nous a encore bluffés.</p>
+					</div>
+				</article>
+
+				<article>
+					<h2><strong>LA RATP</strong> LANCE SON MANUEL DE SURVIE RÉTRO DESTINÉ AUX USAGERS DU MÉTRO</h2>
+					<div class="imgContainer">
+						<img src="images/slide_4/ratp.jpg" alt="">
+						<p class="desc">Ah, Paris… Son métro et ses interminables parties de Tétris aux heures de pointe. Les usagers des transports en commun connaissent cette routine rocambolesque et pas toujours facile à vivre. Pour s'en sortir, la RATP lance son nouveau manuel pour lutter contre les incivilités.</p>
+					</div>
+				</article>
+
+				<article>
+					<h2><strong>VALÉRIE LEMERCIER,</strong> LA BOURGEOISE “ATTACHIANTE” DE RETOUR AVEC 100% CACHEMIRE</h2>
+					<div class="imgContainer">
+						<img src="images/slide_4/obama.jpg" alt="">
+						<p class="desc">Valérie Lemercier et les Français ça fait des années que ça dure, 25 ans exactement. Un timbre de voix bien particulier, un physique lui aussi atypique et un humour décapant, l'actrice en guise de cadeau de Noël nous offre en 2013 un nouveau film de son cru. Avec "100% Cachemire", elle se dédouble a nouveau, repassant derrière et devant la caméra 7 ans après "Palais Royal".</p>
+					</div>
+				</article>
+
+				<article>
+					<h2><strong>LES 10 CONFIDENCES DE DOROTHÉE GILBERT,</strong> LE VISAGE DE REPETTO</h2>
+					<div class="imgContainer">
+						<img src="images/slide_4/obama.jpg" alt="">
+						<p class="desc">Depuis plus de soixante-cinq ans, la maison Repetto s'inspire de femmes d'exception qui tutoient le divin au quotidien. Danseuses Etoiles insoumises à la pesanteur ou jeunes prodiges remplies d'espoir, elles nourrissent les rêves des petites filles du monde entier et donnent aux adultes l'envie de soigner chacun de ses gestes.</p>
+					</div>
+				</article>
+
+				<article>
+					<h2><strong>DIANE KRUGER</strong> EN ROBE TRANSPARENTE : TERRIBLEMENT SENSUELLE AUX EFA BERLIN</h2>
+					<div class="imgContainer">
+						<img src="images/slide_4/kruger.jpg" alt="">
+						<p class="desc">Diane Kruger n'est pas drôle. Canon, toujours impeccablement habillée, bien coiffée, joliment maquillée, impossible de trouver à redire sur les looks de la stars et encore moins de se moquer. La belle Allemande est tout simplement du genre parfaite. Il n'y a qu'à la voir à Berlin ce samedi 7 décembre où elle nous a encore bluffés.</p>
+					</div>
+				</article>
+
+				<article>
+					<h2><strong>DIANE KRUGER</strong> EN ROBE TRANSPARENTE : TERRIBLEMENT SENSUELLE AUX EFA BERLIN</h2>
+					<div class="imgContainer">
+						<img src="images/slide_4/obama.jpg" alt="">
+						<p class="desc">Dimanche 8 décembre, Michelle Obama et Barack Obama ont accueilli les lauréats du Centre Kennedy. Comme tous les ans, c'est en grande pompe et dans un décor de rêve que les lauréats, des hommes et des femmes pratiquant un art de la scène, ont reçu un prix pour leur contribution à la culture américaine…</p>
+					</div>
+				</article>
+
+				<article>
+					<h2><strong>DIANE KRUGER</strong> EN ROBE TRANSPARENTE : TERRIBLEMENT SENSUELLE AUX EFA BERLIN</h2>
+					<div class="imgContainer">
+						<img src="images/slide_4/obama.jpg" alt="">
+						<p class="desc">Dimanche 8 décembre, Michelle Obama et Barack Obama ont accueilli les lauréats du Centre Kennedy. Comme tous les ans, c'est en grande pompe et dans un décor de rêve que les lauréats, des hommes et des femmes pratiquant un art de la scène, ont reçu un prix pour leur contribution à la culture américaine…</p>
+					</div>
+				</article>
+			</div>
+
+			<div class="shopping">
+				<div class="title">Shopping</div>
+				<article>
+					<h2><strong>MANGO DÉVOILE SES LOOKS POUR L’AUTOMNE :</strong> ALLURES MASCULINES, ROCK, FÉLINES ET GLAMOUR</h2>
+					<div class="imgContainer">
+						<img src="images/slide_4/mango.jpg" alt="">
+						<p class="desc">Dimanche 8 décembre, Michelle Obama et Barack Obama ont accueilli les lauréats du Centre Kennedy. Comme tous les ans, c'est en grande pompe et dans un décor de rêve que les lauréats, des hommes et des femmes pratiquant un art de la scène, ont reçu un prix pour leur contribution à la culture américaine…</p>
+					</div>
+				</article>
+			</div>
+
+		</section>
+
+
+		<!-- MODULE 5 -->
+		<section id="module_5" class="module">
+			<div class="univers">
+
 				<div class="elements">
-					<div class="round" data-stellar-ratio="0.5" data-stellar-vertical-offset="150"></div>
-					<div class="round" data-stellar-ratio="1.5" data-stellar-vertical-offset="150"></div>
-					<div class="round" data-stellar-ratio="0.2" data-stellar-vertical-offset="500"></div>
+					<img class="car" src="images/slide_5/land_rover_bg.jpg" alt="" >
+					<div class="logo" data-stellar-ratio="0.9">
+						<img src="images/slide_5/logo.png" alt="" />
+					</div>
+
+
+					<ul class="bullets">
+						<li>
+							<span>+</span>
+							<div class="extraInfos">
+								<h3>Garde au sol</h3>
+								<p>Range Rover Evoque évolue tout aussi confortablement en milieu urbain qu'en tout-terrain, en se jouant des passages rocheux comme des dos d'âne, grâce à une garde au sol des plus généreuses.</p>
+							</div>
+						</li>
+						<li>
+							<span>+</span>
+							<div class="extraInfos">
+								<h3>Espace de chargement maximum</h3>
+								<p>Spacieux et modulable, l'intérieur du Range Rover Evoque s'adaptera à toutes vos aventures futures, en ville comme en hors-piste.</p>
+							</div>
+						</li>
+						<li>
+							<span>+</span>
+							<div class="extraInfos">
+								<h3>Dimensions et capacités</h3>
+								<p>En tout-terrain, les capacités de franchissement du Range Rover Evoque font l'orgueil de la marque Land Rover.</p>
+							</div>
+						</li>
+						<li>
+							<span>+</span>
+							<div class="extraInfos">
+								<h3>Restez en prise avec la ville</h3>
+								<p>Le Range Rover Evoque a été conçu et fabriqué pour un mode de vie urbain. Les systèmes Adaptive Dynamics et MagneRide™ effectuent des vérifications pour garantir un confort de conduite optimal.</p>
+							</div>
+						</li>
+						<li>
+							<span>+</span>
+							<div class="extraInfos">
+								<h3>Diamètre de braquage</h3>
+								<p>Le diamètre de braquage du Range Rover Evoque permet de prendre des virages serrés et de se garer en toute sérénité.</p>
+							</div>
+						</li>
+					</ul>
+
 				</div>
-			</section>
-			<section id="module_2"></section>
-			<section id="module_3" data-stellar-background-ratio="0.5"></section>
-			<section id="module_4"></section>
-		</div>
-	</body>
+			</div>
+		</section>
+
+
+	</div>
+</body>
 </html>
+
+
+
+
