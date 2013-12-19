@@ -161,97 +161,97 @@
 
         // MODULE 4 (contents) & default rules for articles
         &.module
+            
+            .news
+            .highlight
+                float left
+
+            .title
+                noveCento(noveLight, 35px, #999)
+                text-transform uppercase
+                margin 0 0 35px
+
+        
+
+            article
+                width 300px
+                height 270px
+                position relative
+                float left
+                margin 0 25px 25px 0 
+
+                h2
+                    noveCento(noveBook, 13px, #666, 150%)
+                    text-transform uppercase
+                    top 210px
+                    position absolute
+                    margin 0
+
+                    strong
+                        noveCento(noveBold, 13px, #666, 150%)
+
+
+
+
+                .imgContainer
+                    position relative
+                    border-top 1px solid #ccc
+                    border-bottom 2px solid #ccc
+                    width inherit
+                    position relative
+
+                    img
+                        display block
+                        width 100%
+                        height auto
+                    
+                    .desc
+                        position absolute
+                        opacity 0
+                        left -99999px
+                        transition opacity 0.2s
+
+                &:hover
+                    cursor pointer
+
+                    .imgContainer
+                        .desc
+                            width 100%
+                            height 100%
+                            background rgba(0,0,0,.9)
+                            top 0
+                            left 0
+                            padding 20px
+                            font 13px/150% Arial, sans-serif
+                            color #ddd
+                            margin 0
+                            position absolute
+                            overflow hidden
+                            opacity 1
+
+                            &:after
+                                position absolute
+                                bottom 0
+                                left 0
+                                height 25%
+                                width 100%
+                                content ""
+                                background linear-gradient(top, rgba(0,0,0,0), #000)
+
+
+            /* News frame */
+            .news
+                width 70%
+
+            /* Shopping frame */
             &#module_4
-
-                .news
-                .shopping
-                    float left
-
+                
                 padding 50px 5% 0
                 border-bottom 5px solid #ddd
                 background #f3f3f3
                 overflow auto
 
-                .title
-                    noveCento(noveLight, 35px, #999)
-                    text-transform uppercase
-                    margin 0 0 35px
-
-            
-
-                article
-                    width 300px
-                    height 270px
-                    position relative
-                    float left
-                    margin 0 25px 25px 0 
-
-                    h2
-                        noveCento(noveBook, 13px, #666, 150%)
-                        text-transform uppercase
-                        top 210px
-                        position absolute
-                        margin 0
-
-                        strong
-                            noveCento(noveBold, 13px, #666, 150%)
-
-
-
-
-                    .imgContainer
-                        position relative
-                        border-top 1px solid #ccc
-                        border-bottom 2px solid #ccc
-                        width inherit
-                        position relative
-
-                        img
-                            display block
-                            width 100%
-                            height auto
-                        
-                        .desc
-                            position absolute
-                            opacity 0
-                            left -99999px
-                            transition opacity 0.2s
-
-                    &:hover
-                        cursor pointer
-
-                        .imgContainer
-                            .desc
-                                width 100%
-                                height 100%
-                                background rgba(0,0,0,.9)
-                                top 0
-                                left 0
-                                padding 20px
-                                font 13px/150% Arial, sans-serif
-                                color #ddd
-                                margin 0
-                                position absolute
-                                overflow hidden
-                                opacity 1
-
-                                &:after
-                                    position absolute
-                                    bottom 0
-                                    left 0
-                                    height 25%
-                                    width 100%
-                                    content ""
-                                    background linear-gradient(top, rgba(0,0,0,0), #000)
-
-
-                /* News frame */
-                .news
-                    width 70%
-
-
-                /* Shopping frame */
-                .shopping
+                .highlight
                     width 30%
 
                     .title
@@ -273,6 +273,9 @@
                             background #fff
 
 
+                
+
+
         // MODULE 5 (universe)
         &#module_5
             height 80%
@@ -284,6 +287,7 @@
                 height 100%
                 width 1000px
                 margin 0 auto
+
 
                 .elements
                     width inherit
@@ -352,7 +356,7 @@
                                     margin 75px auto 0
                                     noveCento(noveBold, 16px, #eee)
                                 p
-                                    noveCento(noveLight, 13px, #ccc, 150%)
+                                    noveCento(noveLight, 13px, #ccc)
                                     margin 0 auto
 
                                 h3
@@ -371,6 +375,122 @@
 
 
 
+        // MODULE 6 (contents)
+        &#module_6
+            
+            padding 50px 5% 0
+            border-bottom 5px solid #ddd
+            background #f3f3f3
+            overflow auto
+
+            .news
+                width 75%
+                article
+                    width 200px
+                    height 220px
+
+                    h2
+                        top 150px
+
+            .highlight
+                width 25%
+
+                .title
+                    color #DB559A
+
+                ul
+                    list-style none
+                    margin 0
+                    padding 0
+
+                    li
+                        overflow auto
+                        margin 0 0 15px 0
+
+                        img
+                            width 54px
+                            height 54px
+                            float left
+                            padding 3px
+                            border 1px solid #ccc
+                            border-bottom 2px solid #ccc
+
+                        h3
+                            noveCento(noveBook, 13px, #666, 150%)
+                            margin 0 0 0 10px
+                            float left
+                            width -webkit-calc(100% - 65px)
+                            width calc(100% - 65px)
+                            position relative
+                            top -3px
+
+                            strong
+                                noveCento(noveBold, 13px, #666, 150%)
+
+
+        // MODULE 7 (photoGrid)
+        &#module_7
+            height 100%
+            width 100%
+            overflow auto
+            
+            .photoGrid
+                margin 10% auto 0 auto
+                width 1040px
+
+
+                .lightBox
+                    position fixed
+                    top 0
+                    width 100%
+                    height 100%
+                    background rgba(0,0,0,.9)
+                    opacity 0
+                    z-index 999
+                    left -99999px
+                    transition opacity .2s
+
+                    &.active
+                        left 0
+                        opacity 1
+                        cursor pointer
+
+                    .imgContainer
+                        text-align center
+                        height 100%
+                        width 100%
+
+                        img
+                            margin 5% 0 0 0
+                            max-width 80%
+                            max-height 80%
+                            padding 5px
+                            background #eee
+
+
+                .modules
+                    position relative
+
+                    h2
+                        noveCento(noveLight, 35px, #7A7184)
+                        text-transform uppercase
+                        position absolute
+
+                    .column
+                        float left
+                        width 250px
+                        margin 0 10px 0 0
+                        position relative
+
+                        .block
+                            float left
+                            margin 0 0 10px 0
+                            box-shadow 0 0 5px rgba(0,0,0,.25)
+                            cursor pointer
+
+                            img
+                                display block
+                                
 
 
 
@@ -386,6 +506,7 @@
         #module_4.module
 
             .news
+                
                 article
                     width 240px
                     height 220px

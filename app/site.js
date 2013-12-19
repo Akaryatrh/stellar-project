@@ -34,14 +34,16 @@
 
 			// Loop
 			modulesInit : function(){
-				var moduleLength = $("#container .module").length;
+				var moduleLength = this.definitions.length;
 				for (var i = 0; i < moduleLength; i++) {
-					var currentModule = $("#container .module").eq(i);
 					var currentDef = this.definitions[i];
+
 					if(currentDef !== undefined){
-						var currentDefinition = currentDef["method"];
-						if(currentDefinition !== false){
-							this.methods[currentDefinition].init(currentModule);
+						var currentModule = $("#container").find("#"+currentDef.name);
+						var currentDefMethod = currentDef["method"];
+
+						if(currentDefMethod !== false){
+							this.methods[currentDefMethod].init(currentModule);
 						}	
 					}
 				};
@@ -49,10 +51,6 @@
 
 			// Definition
 			definitions : [
-				{
-					name: "module_1",
-					method: false
-				},
 
 				{
 					name: "module_2",
@@ -65,8 +63,8 @@
 				},
 
 				{
-					name: "module_4",
-					method: false
+					name: "module_7",
+					method: "photoGrid"
 				}
 				
 			],
@@ -204,7 +202,37 @@
 						var ratio = tWidth/vWidth;
 						var newHeight = vHeight * ratio;
 						video.height(newHeight);
-						console.log()
+					}
+				},
+
+
+				photoGrid : {
+
+					init : function(target){
+						var lightBox = target.find(".lightBox");
+						var _this = this;
+						// Events
+						// Click on thumbnails
+						target.find(".block").on("click", function(){
+							_this.insertImage(target, $(this));
+							lightBox.addClass("active");
+						});
+
+						// Click on thumbnails
+						lightBox.on("click", function(){
+							lightBox.removeClass("active");
+							imgContainer.empty();
+						});
+
+					},
+
+					insertImage : function(target, source){
+						var imgContainer = target.find(".lightBox .imgContainer");
+						imgContainer.empty();
+						var image = new Image();
+						console.log(source.data());
+						image.src=source.data("largeimg");
+						imgContainer.append(image);
 					}
 				}
 
@@ -220,7 +248,9 @@
 			// Init parallax
 			$.stellar({
 				hideDistantElements: false,
-				horizontalScrolling: false
+				horizontalScrolling: false,
+			    verticalOffset: 0,
+			    horizontalOffset: 0
 			});
 		}
 		
@@ -229,9 +259,6 @@
 		if (!$.support.transition) {
   			$.fn.transition = $.fn.animate;
 		}
-		var dWidth = $(document).width();
-		var dHeight = $(document).height();
-		console.log(dWidth, dHeight);
 
 
 
