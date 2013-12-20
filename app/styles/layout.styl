@@ -49,7 +49,7 @@
 
                 .arrow
                     position absolute
-                    width 67px
+                    width 67pxstyl
                     height 112px
                     background url('../images/arrows.png') no-repeat left top
                     left 5%
@@ -490,7 +490,113 @@
 
                             img
                                 display block
+
+
+
                                 
+
+        // MODULE 8 (slider produits)
+        &#module_8
+            height 80%
+            overflow hidden
+
+            .arrows
+                position absolute
+                width 100%
+                z-index 3
+                // old safari ios support
+                top -webkit-calc(50% - 35px)
+                top calc(50% - 35px)
+
+                .arrow
+                    position absolute
+                    width 67px
+                    height 112px
+                    background url('../images/arrows.png') no-repeat left top
+                    left 5%
+                    text-indent -9999px
+                    cursor pointer
+
+                    &:hover
+                        background-position left bottom
+
+                    &.right
+                        right 5%
+                        left auto
+                        background-position right top
+
+                        &:hover
+                            background-position right bottom
+
+
+            .centerNav
+                position absolute
+                bottom 1%
+                width 100%
+                z-index 2
+
+                .navigation
+                    margin 0
+                    padding 0
+                    text-align center
+                    position relative
+                    z-index 2
+
+                    li
+                        position relative
+                        background #fff
+                        border-radius 8px
+                        width 8px
+                        height 8px
+                        display inline-block
+                        margin 0 5px
+                        opacity .5
+
+                        &.active
+                            opacity 1
+
+                        &:before
+                            content ""
+                            position absolute
+                            z-index -1
+                            background rgba(0,0,0,.4)
+                            border-radius 25px
+                            width 16px
+                            height 16px
+                            left -4px
+                            top -4px
+
+            .diaporama
+                height 100%
+                width 15000px
+                margin 0
+                padding 0
+                list-style none
+                position relative
+                z-index 1
+
+                li
+                    float left
+                    height inherit
+                    position relative
+                    text-align center
+
+                    .legend
+                        position absolute
+                        left 0
+                        top 0
+                        z-index 2
+                        text-indent -9999px
+                        width 100%
+                        
+                        a
+                            text-decoration none
+
+                            .desc
+                                noveCento(noveLight, 2.5em, #fff)
+                                margin 0
+
+
 
 
 

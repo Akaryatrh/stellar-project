@@ -10,14 +10,13 @@
 		});
 
 
-		/*
-		 * MODULES initialization
-		 */
+		
 
 
 		/*
 		 * Nav positionning
 		 */
+
 		$(window).scroll(function(){
 			var wPOs = $(window).scrollTop();
 			var headerHeight = $("header").height();
@@ -29,6 +28,15 @@
 				$("header").removeClass("scrolled");
 			}
 		});
+
+
+
+		/*
+		 * MODULES initialization
+		 */
+
+		var intervals = {};
+		var indexes ={};
 
 		var modules = {
 
@@ -65,6 +73,11 @@
 				{
 					name: "module_7",
 					method: "photoGrid"
+				},
+
+				{
+					name: "module_8",
+					method: "diaporama"
 				}
 				
 			],
@@ -74,8 +87,6 @@
 
 				// Resize images containers, bind events & auto start diapo
 				diaporama : {
-
-					indexDiapo: 0,
 					
 					init: function(target){
 						
@@ -85,6 +96,8 @@
 						var width = target.width();
 						var _this = this;
 						var autoPlay;
+						var targetId = target[0].id;
+						indexes[targetId] = 0
 						// Resize
 						items.width(width);
 
@@ -95,25 +108,25 @@
 							var direction = -1;
 							
 							// Clicking left but first module
-							if(isLeft && _this.indexDiapo === 0){
-								_this.indexDiapo = itemsLength - 1;
+							if(isLeft && indexes[targetId] === 0){
+								indexes[targetId] = itemsLength - 1;
 
 							// Clicking left on any other module
 							} else if(isLeft){
-								_this.indexDiapo--;
+								indexes[targetId]--;
 
 							// Clicking right and last module
-							} else if(!isLeft && _this.indexDiapo === itemsLength - 1){
-								_this.indexDiapo = 0;
+							} else if(!isLeft && indexes[targetId] === itemsLength - 1){
+								indexes[targetId] = 0;
 
 							// Clicking right on any other module
 							} else if(!isLeft){
-								_this.indexDiapo++;
+								indexes[targetId]++;
 							}
 
 							var params = {
 								target: target,
-								index : _this.indexDiapo,
+								index : indexes[targetId],
 								direction : direction
 							};
 							_this.moveDiapo(params);
@@ -121,12 +134,12 @@
 						});
 						// Mouse entering diaporama
 						target.on("mouseenter",function(){
-							clearInterval(autoPlay)
+							clearInterval(intervals[targetId]);
 						});
 
 						// Mouse leaving diaporama
 						target.on("mouseleave",function(){
-							launchInterval();
+							//launchInterval();
 						});
 
 						// Resize window
@@ -137,12 +150,12 @@
 
 						// Auto play
 						var launchInterval = function(){
-							autoPlay = setInterval(function(){
+							intervals[targetId] = setInterval(function(){
 								target.find(".arrows .arrow.right").trigger("click");
 							}, 5000);
 						};
 
-						launchInterval();
+						//launchInterval();
 
 
 					},
@@ -154,7 +167,36 @@
 					 */
 					moveDiapo : function(params){
 						var decal = params.target.width();
-						params.target.find(".diaporama").transition({left: (decal*params.index)*params.direction});
+						var diapo = params.target.find(".diaporama");
+						var movement = (decal*params.index)*params.direction;
+						var properties = {left: movement};
+
+						// Sometimes we need to create a parallax effect vertically (but can't use scroll position)
+						if(diapo.data("scroll-h")){
+							var imageUrl = diapo.css('background-image');
+							var imageWidth = 0;
+							var image;
+
+							// Remove url() or in case of Chrome url("")
+							imageUrl = imageUrl.match(/^url\("?(.+?)"?\)$/);
+						    imageUrl = imageUrl[1];
+						    image = new Image();
+						    image.src = imageUrl;
+
+						    // just in case it is not already loaded
+						    // TODO : FIX RATIO / MOVEMENT
+						    $(image).bind("load",function () {
+						        var ratio = image.width / diapo.width();
+						        console.log(ratio);
+						        var bpy = diapo.css('backgroundPosition').split(' ')[1];
+								properties.backgroundPosition = (ratio * movement)+'px '+bpy;
+						        diapo.transition(properties, 5000);
+						    });
+						}else{
+							diapo.transition(properties, 5000);
+						}
+
+						
 						params.target.find(".navigation li").removeClass("active");
 						params.target.find(".navigation li").eq(params.index).addClass("active");
 					}
