@@ -171,25 +171,22 @@
 						var movement = (decal*params.index)*params.direction;
 						var properties = {left: movement};
 
-						// Sometimes we need to create a parallax effect vertically (but can't use scroll position)
+						// Sometimes we need to create a parallax effect horizontally (but can't use scroll position)
 						if(diapo.data("scroll-h")){
 							var imageUrl = diapo.css('background-image');
-							var imageWidth = 0;
+							var allDiapos = diapo.find("li").length;
 							var image;
-
 							// Remove url() or in case of Chrome url("")
 							imageUrl = imageUrl.match(/^url\("?(.+?)"?\)$/);
 						    imageUrl = imageUrl[1];
 						    image = new Image();
 						    image.src = imageUrl;
 
-						    // just in case it is not already loaded
-						    // TODO : FIX RATIO / MOVEMENT
+						    // Wait for image loading to get its width
 						    $(image).bind("load",function () {
-						        var ratio = image.width / diapo.width();
-						        console.log(ratio);
+						        // Get background y position
 						        var bpy = diapo.css('backgroundPosition').split(' ')[1];
-								properties.backgroundPosition = (ratio * movement)+'px '+bpy;
+								properties.backgroundPosition = ((-1 * movement) + (movement/allDiapos))+'px '+bpy;
 						        diapo.transition(properties, 5000);
 						    });
 						}else{
