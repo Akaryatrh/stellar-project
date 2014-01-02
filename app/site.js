@@ -171,28 +171,19 @@
 						var movement = (decal*params.index)*params.direction;
 						var properties = {left: movement};
 
+						// Check if there are any elements to fadeIn/fadeOut
+
 						// Sometimes we need to create a parallax effect horizontally (but can't use scroll position)
 						if(diapo.data("scroll-h")){
-							var imageUrl = diapo.css('background-image');
-							var allDiapos = diapo.find("li").length;
-							var image;
-							// Remove url() or in case of Chrome url("")
-							imageUrl = imageUrl.match(/^url\("?(.+?)"?\)$/);
-						    imageUrl = imageUrl[1];
-						    image = new Image();
-						    image.src = imageUrl;
 
-						    // Wait for image loading to get its width
-						    $(image).bind("load",function () {
-						        // Get background y position
-						        var bpy = diapo.css('backgroundPosition').split(' ')[1];
-								properties.backgroundPosition = ((-1 * movement) + (movement/allDiapos))+'px '+bpy;
-						        diapo.transition(properties, 5000);
-						    });
-						}else{
-							diapo.transition(properties, 5000);
+							var image;
+							var allDiapos = diapo.find("li").length;
+							// Get background y position
+					        var bpy = diapo.css('backgroundPosition').split(' ')[1];
+							properties.backgroundPosition = ((-1 * movement) + (movement/allDiapos))+'px '+bpy;
 						}
 
+						diapo.transition(properties, 500);
 						
 						params.target.find(".navigation li").removeClass("active");
 						params.target.find(".navigation li").eq(params.index).addClass("active");

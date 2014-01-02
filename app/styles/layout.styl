@@ -499,6 +499,22 @@
         &#module_8
             height 80%
             overflow hidden
+            position relative
+
+
+            .logo
+                position absolute
+                top 5%
+                left 0
+                margin auto
+                right 0
+                text-indent -9999px
+                background-repeat no-repeat
+                width 300px
+                height 73px
+                z-index 3
+
+
 
             .arrows
                 position absolute
@@ -583,27 +599,45 @@
                     position relative
                     text-align center
 
-                    img
+                    > img
+                        position absolute
+                        top 0
+                        bottom 0
+                        left 0
+                        right 0
+                        margin auto
                         max-height 60%
-                        top 10%
-                        width auto
-                        position relative
 
                     .legend
                         position absolute
-                        left 0
-                        top 0
                         z-index 2
                         text-indent -9999px
-                        width 100%
+                        right 35%
+                        top 25%
                         
                         a
                             text-decoration none
+                            cursor pointer
 
                             .desc
                                 noveCento(noveLight, 2.5em, #fff)
                                 margin 0
 
+                            img
+                                display block
+
+
+                    &:nth-child(2) .legend
+                        right 35%
+
+                    &:nth-child(3) .legend
+                        right 20%
+                        top 45%
+
+                    &:nth-child(4) .legend
+                        right 50%
+                        
+                        
 
 
 
