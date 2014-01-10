@@ -31,8 +31,52 @@ fontFaces()
 		font-weight normal
 		font-style normal
 
+	@font-face
+		font-family: noveMedium
+		src: url(font-url + '298428_medium.eot')
+		src: url(font-url + '298428_medium.eot?#iefix') format('embedded-opentype'),url(font-url + '298428_medium.woff') format('woff'),url(font-url + '298428_medium.ttf') format('truetype'),url(font-url + '298428_medium.svg#wf') format('svg')
+		font-weight normal
+		font-style normal
+
+
+	@font-face
+		font-family: merryLight
+		src: url(font-url + 'merriweather-light.eot')
+		src: url(font-url + 'merriweather-light.eot?#iefix') format('embedded-opentype'),url(font-url + 'merriweather-light.woff') format('woff'),url(font-url + 'merriweather-light.ttf') format('truetype'),url(font-url + 'merriweather-light.svg#wf') format('svg')
+		font-weight normal
+		font-style normal
+
+	@font-face
+		font-family: merryReg
+		src: url(font-url + 'merriweather-regular.eot')
+		src: url(font-url + 'merriweather-regular.eot?#iefix') format('embedded-opentype'),url(font-url + 'merriweather-regular.woff') format('woff'),url(font-url + 'merriweather-regular.ttf') format('truetype'),url(font-url + 'merriweather-regular.svg#wf') format('svg')
+		font-weight normal
+		font-style normal
+
+
+	@font-face
+		font-family: merryBold
+		src: url(font-url + 'merriweather-bold.eot')
+		src: url(font-url + 'merriweather-bold.eot?#iefix') format('embedded-opentype'),url(font-url + 'merriweather-bold.woff') format('woff'),url(font-url + 'merriweather-bold.ttf') format('truetype'),url(font-url + 'merriweather-bold.svg#wf') format('svg')
+		font-weight normal
+		font-style normal
+
+	@font-face
+		font-family: merryBlack
+		src: url(font-url + 'merriweather-black.eot')
+		src: url(font-url + 'merriweather-black.eot?#iefix') format('embedded-opentype'),url(font-url + 'merriweather-black.woff') format('woff'),url(font-url + 'merriweather-black.ttf') format('truetype'),url(font-url + 'merriweather-black.svg#wf') format('svg')
+		font-weight normal
+		font-style normal
+
 	
 noveCento(family = noveN, Size = 12px, Color = #666, LineHeight = normal, TextShadow = false)
+	font Size/LineHeight family, sans-serif
+	color Color
+	unless TextShadow == false
+		text-shadow TextShadow
+
+
+merry(family = merryReg, Size = 12px, Color = #666, LineHeight = normal, TextShadow = false)
 	font Size/LineHeight family, sans-serif
 	color Color
 	unless TextShadow == false

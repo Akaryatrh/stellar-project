@@ -49,7 +49,7 @@
 
                 .arrow
                     position absolute
-                    width 67pxstyl
+                    width 67px
                     height 112px
                     background url('../images/arrows.png') no-repeat left top
                     left 5%
@@ -128,7 +128,6 @@
                         left 0
                         z-index 2
                         background rgba(0,0,0,.5)
-                        text-transform uppercase
                         padding 30px
                         width 100%
                         
@@ -136,10 +135,11 @@
                             text-decoration none
                             h2
                                 noveCento(noveBold, 2.5em, #fff)
+                                text-transform uppercase
                                 margin 0
 
                             .desc
-                                noveCento(noveLight, 2.5em, #fff)
+                                merry(merryLight, 2em, #fff)
                                 margin 0
 
 
@@ -147,6 +147,33 @@
         // MODULE 3 (video)
         &#module_3
             top 50px
+            position relative
+
+            .redirect
+                position absolute
+                bottom 80px
+                right 20px
+                background rgba(0, 0, 0, .5)
+                z-index 2
+                opacity 0.25
+                transition opacity .2s
+
+                a
+                    padding 15px
+                    text-decoration none
+                    display block
+                    overflow auto
+
+                    span
+                        merry(merryReg, 18px, #666, 45px)
+                        float left
+                        margin 0 15px 0 0
+                        color #eee
+                    img
+                        float left
+
+                &:hover
+                    opacity 1
 
             video
                 opacity .5
@@ -266,11 +293,24 @@
                             top 490px
 
                         .imgContainer
+                            height 480px
                             position relative
                             border-top 1px solid #ccc
                             border-bottom 2px solid #ccc
                             padding 8px
                             background #fff
+                            overflow hidden
+
+                            .gallery
+                                height inherit
+                                width 1500px
+                                position relative
+
+                                img
+                                    position relative
+                                    width 341px
+                                    float left
+                                    margin 0 15px 0 0
 
 
                 
@@ -442,12 +482,12 @@
                 .lightBox
                     position fixed
                     top 0
+                    left -99999px
                     width 100%
                     height 100%
                     background rgba(0,0,0,.9)
                     opacity 0
                     z-index 999
-                    left -99999px
                     transition opacity .2s
 
                     &.active
@@ -459,6 +499,22 @@
                         text-align center
                         height 100%
                         width 100%
+                        position relative
+
+                        &.loading
+                            width 50px
+                            height 50px
+                            margin auto
+                            position absolute
+                            top 0
+                            left 0
+                            bottom 0
+                            right 0
+                            background url('../images/slide_7/ajax-loader.gif') no-repeat center
+
+                            .arrows
+                            .centerNav
+                                display none
 
                         img
                             margin 5% 0 0 0
@@ -466,6 +522,79 @@
                             max-height 80%
                             padding 5px
                             background #eee
+                            position absolute
+                            top 0
+                            left 0
+                            right 0
+                            bottom 0
+                            margin auto
+
+
+                        .arrows
+                            position absolute
+                            width 100%
+                            z-index 3
+                            // old safari ios support
+                            top -webkit-calc(50% - 35px)
+                            top calc(50% - 35px)
+
+                            .arrow
+                                position absolute
+                                width 67px
+                                height 112px
+                                background url('../images/arrows.png') no-repeat left top
+                                left 5%
+                                text-indent -9999px
+                                cursor pointer
+
+                                &:hover
+                                    background-position left bottom
+
+                                &.right
+                                    right 5%
+                                    left auto
+                                    background-position right top
+
+                                    &:hover
+                                        background-position right bottom
+
+
+                        .centerNav
+                            position absolute
+                            bottom 1%
+                            width 100%
+                            z-index 2
+
+                            .navigation
+                                margin 0
+                                padding 0
+                                text-align center
+                                position relative
+                                z-index 2
+
+                                li
+                                    position relative
+                                    background #fff
+                                    border-radius 8px
+                                    width 8px
+                                    height 8px
+                                    display inline-block
+                                    margin 0 5px
+                                    opacity .5
+
+                                    &.active
+                                        opacity 1
+
+                                    &:before
+                                        content ""
+                                        position absolute
+                                        z-index -1
+                                        background rgba(0,0,0,.4)
+                                        border-radius 25px
+                                        width 16px
+                                        height 16px
+                                        left -4px
+                                        top -4px
 
 
                 .modules
@@ -474,13 +603,18 @@
                     h2
                         noveCento(noveLight, 35px, #7A7184)
                         text-transform uppercase
-                        position absolute
 
                     .column
                         float left
                         width 250px
                         margin 0 10px 0 0
                         position relative
+
+                        &.large
+                            width 510px
+
+                            .block:nth-child(2)
+                                margin 0 10px 0 0
 
                         .block
                             float left

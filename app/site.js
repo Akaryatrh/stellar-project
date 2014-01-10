@@ -71,6 +71,11 @@
 				},
 
 				{
+					name: "module_4",
+					method: "smallSlide"
+				},
+
+				{
 					name: "module_7",
 					method: "photoGrid"
 				},
@@ -139,7 +144,7 @@
 
 						// Mouse leaving diaporama
 						target.on("mouseleave",function(){
-							//launchInterval();
+							launchInterval();
 						});
 
 						// Resize window
@@ -155,7 +160,7 @@
 							}, 5000);
 						};
 
-						//launchInterval();
+						launchInterval();
 
 
 					},
@@ -236,33 +241,98 @@
 				},
 
 
+				smallSlide : {
+					init : function(target){
+						var index = 0;
+						var interval;
+						var imgContainer = target.find(".highlight .imgContainer")
+						var gallery = imgContainer.find(".gallery");
+						var allImages = gallery.find("img");
+						var decal = imgContainer.parent().width();
+						
+						// Will swap images every 3s
+						var changeImage = function(){
+							interval = setInterval(function(){
+								if(index === (allImages.length - 1)){
+									index = 0;
+								}else{
+									index++;
+								}
+
+								gallery.transition({
+									left: -1 * decal * index
+								},250);
+
+							}, 3000);
+						};
+
+
+						// Bindings : start diapo on leave, stop on enter
+						imgContainer.on("mouseenter", function(e){
+							clearInterval(interval);
+						});
+						imgContainer.on("mouseleave", function(e){
+							changeImage();
+						});
+
+						// Call swap
+						changeImage();
+					}
+				},
+
+
 				photoGrid : {
 
 					init : function(target){
 						var lightBox = target.find(".lightBox");
+						var imgContainer = lightBox.find(".imgContainer");
 						var _this = this;
 						// Events
 						// Click on thumbnails
 						target.find(".block").on("click", function(){
 							_this.insertImage(target, $(this));
-							lightBox.addClass("active");
 						});
 
-						// Click on thumbnails
-						lightBox.on("click", function(){
+						// Exit Lightbox
+						lightBox.on("click", function(e){
 							lightBox.removeClass("active");
-							imgContainer.empty();
+						});
+
+						//Arrows
+						lightBox.find(".arrow").on("click", function(e){
+							console.log("arrow");
+							e.stopPropagation();
 						});
 
 					},
 
 					insertImage : function(target, source){
-						var imgContainer = target.find(".lightBox .imgContainer");
-						imgContainer.empty();
+						var lightBox = target.find(".lightBox");
+						var imgContainer = lightBox.find(".imgContainer");
+						// Remove existing images
+						imgContainer.find("img").remove();
 						var image = new Image();
-						console.log(source.data());
-						image.src=source.data("largeimg");
-						imgContainer.append(image);
+						var srcImage = source.data("largeimg");
+
+						lightBox.addClass("active");
+						imgContainer.addClass("loading");
+
+						$(image).addClass("firstLevel");
+						$(image).one("load",function(e){
+							console.log(e);
+							imgContainer.removeClass("loading").append(image);
+						});
+						image.src=srcImage;
+					},
+
+					swapImage : function(params){
+						var target = params.target;
+						var index = params.index;
+						var allImages = target.find("img");
+						var imgSource = allImages.eq(index).prop("src");
+						var image = new Image();
+						image.src=imgSource;
+
 					}
 				}
 
