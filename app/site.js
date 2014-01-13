@@ -76,6 +76,11 @@
 				},
 
 				{
+					name: "module_5",
+					method: "animation"
+				},
+
+				{
 					name: "module_7",
 					method: "photoGrid"
 				},
@@ -281,16 +286,75 @@
 				},
 
 
+
+
+				animation : {
+
+					init : function(target){
+						var _this = this;
+						_this.target = target;
+						var images = target.find(".productAnimation img");
+
+						_this.showHide(images.eq(0));
+						
+					},
+
+					showHide : function(image){
+						var _this = this;
+						image.transition({opacity: 1},1500);
+						if(image.is(':last-child')){
+							_this.showInfos(_this.target);
+						}else{
+							setTimeout(function(){
+								image.transition({opacity: 0},3000);
+								_this.showHide(image.next());
+							},2000);
+							
+						}
+					},
+
+					showInfos : function(){
+						var _this = this;
+						var bullets = _this.target.find(".bullets")
+						var allBullets = bullets.find("li");
+
+						var showBullet = function(bullet){
+							setTimeout(function(){
+								bullet.addClass("show");
+								showBullet(bullet.next());
+							},1500);
+						};
+
+						bullets.addClass("show");
+						showBullet(allBullets.eq(0));
+
+						
+
+					}
+				},
+
+
 				photoGrid : {
 
 					init : function(target){
+						var _this = this;
 						var lightBox = target.find(".lightBox");
 						var imgContainer = lightBox.find(".imgContainer");
-						var _this = this;
+						_this.allBlocks = target.find(".modules .block");
+
+						
+
 						// Events
+
 						// Click on thumbnails
-						target.find(".block").on("click", function(){
-							_this.insertImage(target, $(this));
+						_this.allBlocks.on("click", function(){
+							var index = _this.allBlocks.index($(this));
+							var params = {
+								index : index,
+								target : target,
+								source : $(this)
+							};
+							_this.insertImage(params);
 						});
 
 						// Exit Lightbox
@@ -300,37 +364,77 @@
 
 						//Arrows
 						lightBox.find(".arrow").on("click", function(e){
-							console.log("arrow");
+							var allBlocksLength = _this.allBlocks.length;
+							var currentImage = $(this).closest(".imgContainer").find("img");
+							var currentImageSrc = currentImage.attr("src");
+							var currentImageindex = currentImage.data("index");
+
+							if($(this).is(".right")){
+								if(currentImageindex === allBlocksLength - 1){
+									currentImageindex = 0;
+								}else{
+									currentImageindex++;
+								}
+							}else{
+								if(currentImageindex === 0){
+									currentImageindex = allBlocksLength - 1;
+								}else{
+									currentImageindex--;
+								}
+							}
+							console.log("currentImageindex");
+							console.log(currentImageindex);
+							var params = {
+								index : currentImageindex,
+								target : currentImage
+							}
+							_this.swapImage(params);
 							e.stopPropagation();
 						});
 
 					},
 
-					insertImage : function(target, source){
-						var lightBox = target.find(".lightBox");
+					insertImage : function(params){
+						var lightBox = params.target.find(".lightBox");
 						var imgContainer = lightBox.find(".imgContainer");
+						var paginationList = imgContainer.find(".centerNav .navigation li");
+						console.log("paginationList");
+						console.log(paginationList.eq(params.index));
 						// Remove existing images
 						imgContainer.find("img").remove();
 						var image = new Image();
-						var srcImage = source.data("largeimg");
+						var srcImage = params.source.data("largeimg");
 
 						lightBox.addClass("active");
 						imgContainer.addClass("loading");
-
-						$(image).addClass("firstLevel");
+						
 						$(image).one("load",function(e){
-							console.log(e);
-							imgContainer.removeClass("loading").append(image);
+							imgContainer.removeClass("loading").append($(image));
+							$(image).data("index", params.index);
+							paginationList.removeClass();
+							paginationList.eq(params.index).addClass("active");
 						});
 						image.src=srcImage;
 					},
 
 					swapImage : function(params){
+						var _this = this;
 						var target = params.target;
 						var index = params.index;
-						var allImages = target.find("img");
-						var imgSource = allImages.eq(index).prop("src");
 						var image = new Image();
+						var imgContainer = target.parent();
+						var paginationList = imgContainer.find(".centerNav .navigation li");
+						console.log("paginationList");
+						console.log(paginationList.eq(index));
+						var imgSource = _this.allBlocks.eq(index).data("largeimg");
+						imgContainer.addClass("loading");
+						$(image).one("load",function(e){
+							imgContainer.removeClass("loading");
+							target.data("index", params.index);
+							target.attr("src", imgSource);
+							paginationList.removeClass();
+							paginationList.eq(index).addClass("active");
+						});
 						image.src=imgSource;
 
 					}
