@@ -294,7 +294,9 @@
 						var _this = this;
 						_this.target = target;
 						var images = target.find(".productAnimation img");
-
+						// Show logos
+						target.find(".logo").addClass("show");
+						
 						_this.showHide(images.eq(0));
 						
 					},
