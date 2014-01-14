@@ -545,11 +545,17 @@
         &#module_7
             height 100%
             width 100%
-            overflow auto
             
             .photoGrid
-                margin 10% auto 0 auto
+                /*margin 10% auto 0 auto*/
                 width 1040px
+                top 0
+                left 0
+                bottom 0
+                right 0
+                margin auto
+                height 600px
+                position absolute
 
 
                 .lightBox
@@ -687,6 +693,7 @@
                     h2
                         noveCento(noveLight, 35px, #7A7184)
                         text-transform uppercase
+                        float left
 
                     .column
                         float left
@@ -696,6 +703,7 @@
 
                         &.large
                             width 510px
+                            clear left
 
                             .block:nth-child(2)
                                 margin 0 10px 0 0
