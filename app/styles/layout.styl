@@ -694,6 +694,11 @@
                         noveCento(noveLight, 35px, #7A7184)
                         text-transform uppercase
                         float left
+                        opacity 0
+                        transition opacity 2s
+
+                        &.show
+                            opacity 1
 
                     .column
                         float left
@@ -713,6 +718,11 @@
                             margin 0 0 10px 0
                             box-shadow 0 0 5px rgba(0,0,0,.25)
                             cursor pointer
+                            opacity 0
+                            transition opacity 1s
+
+                            &.show
+                                opacity 1
 
                             img
                                 display block

@@ -348,7 +348,15 @@
 						var imgContainer = lightBox.find(".imgContainer");
 						_this.allBlocks = target.find(".modules .block");
 
-						
+						var blocksOrder = _this.shuffleArray(_this.allBlocks);
+						for (var i = 0; i < blocksOrder.length; i++) {
+							setTimeout(function (x) {
+						        return function () {
+						            $(blocksOrder[x]).addClass("show");	
+						        };
+						    }(i), 125 * i);
+						};
+						target.find("h2").addClass("show");
 
 						// Events
 
@@ -388,8 +396,7 @@
 									currentImageindex--;
 								}
 							}
-							console.log("currentImageindex");
-							console.log(currentImageindex);
+
 							var params = {
 								index : currentImageindex,
 								target : currentImage
@@ -404,8 +411,7 @@
 						var lightBox = params.target.find(".lightBox");
 						var imgContainer = lightBox.find(".imgContainer");
 						var paginationList = imgContainer.find(".centerNav .navigation li");
-						console.log("paginationList");
-						console.log(paginationList.eq(params.index));
+
 						// Remove existing images
 						imgContainer.find("img").remove();
 						var image = new Image();
@@ -430,8 +436,7 @@
 						var image = new Image();
 						var imgContainer = target.parent();
 						var paginationList = imgContainer.find(".centerNav .navigation li");
-						console.log("paginationList");
-						console.log(paginationList.eq(index));
+
 						var imgSource = _this.allBlocks.eq(index).data("largeimg");
 						imgContainer.addClass("loading");
 						$(image).one("load",function(e){
@@ -443,6 +448,16 @@
 						});
 						image.src=imgSource;
 
+					},
+
+					shuffleArray : function(array) {
+					    for (var i = array.length - 1; i > 0; i--) {
+					        var j = Math.floor(Math.random() * (i + 1));
+					        var temp = array[i];
+					        array[i] = array[j];
+					        array[j] = temp;
+					    }
+					    return array;
 					}
 				}
 
