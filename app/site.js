@@ -49,8 +49,9 @@
 					if(currentDef !== undefined){
 						var currentModule = $("#container").find("#"+currentDef.name);
 						var currentDefMethod = currentDef["method"];
+						var currentDefAuto = currentDef["auto"];
 
-						if(currentDefMethod !== false){
+						if(currentDefMethod !== false && currentDefAuto === true){
 							this.methods[currentDefMethod].init(currentModule);
 						}	
 					}
@@ -62,12 +63,14 @@
 
 				{
 					name: "module_2",
-					method: "diaporama"
+					method: "diaporama",
+					auto: true
 				},
 
 				{
 					name: "module_3",
-					method: "video"
+					method: "video",
+					auto: true
 				},
 
 				{
@@ -87,7 +90,8 @@
 
 				{
 					name: "module_8",
-					method: "diaporama"
+					method: "diaporama",
+					auto: true
 				}
 				
 			],
@@ -446,8 +450,34 @@
 
 
 		}; 
-		
+
 		modules.modulesInit();
+
+
+		/* Waypoints */
+		$("section").waypoint({
+
+			offset : "50%",
+			triggerOnce: true,
+			handler: function() {
+		  		var currentModule = $(this);
+		  		var currentID = $(this).prop("id");
+				
+				for(var i = 0;i < modules.definitions.length; i++){
+					var currentDef = modules.definitions[i];
+					var currentModuleName = currentDef["name"];
+					var currentDefAuto = currentDef["auto"];
+					var currentDefMethod = currentDef["method"];
+
+					// Launch module if not auto
+					if(currentModuleName === currentID && currentDefAuto === undefined){
+						modules.methods[currentDefMethod].init(currentModule);
+						// quit loop
+						break;
+					}
+				}
+			}
+		});
 
 
 		if(!Modernizr.ipad){
@@ -461,7 +491,7 @@
 		}
 		
 
-		// Fallback to animate if transition is unsupported
+		// Fallback to animate if transition is not supported
 		if (!$.support.transition) {
   			$.fn.transition = $.fn.animate;
 		}
