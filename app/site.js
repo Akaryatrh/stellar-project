@@ -407,6 +407,7 @@
 
 					},
 
+
 					insertImage : function(params){
 						var lightBox = params.target.find(".lightBox");
 						var imgContainer = lightBox.find(".imgContainer");
@@ -429,6 +430,7 @@
 						image.src=srcImage;
 					},
 
+
 					swapImage : function(params){
 						var _this = this;
 						var target = params.target;
@@ -450,14 +452,16 @@
 
 					},
 
+
 					shuffleArray : function(array) {
-					    for (var i = array.length - 1; i > 0; i--) {
+						var newArray = array.slice(0)
+					    for (var i = newArray.length - 1; i > 0; i--) {
 					        var j = Math.floor(Math.random() * (i + 1));
-					        var temp = array[i];
-					        array[i] = array[j];
-					        array[j] = temp;
+					        var temp = newArray[i];
+					        newArray[i] = newArray[j];
+					        newArray[j] = temp;
 					    }
-					    return array;
+					    return newArray;
 					}
 				}
 
