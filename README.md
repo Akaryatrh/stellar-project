@@ -1,30 +1,30 @@
 PARALLAX DEMO
 
-Project compiles with the help of Brunch (http://brunch.io/). Brunch requires nodeJS (http://nodejs.org/)
-Build dependencies are managed with brunch via NPM (comes with nodeJS) > see package.json
-Project dependencies are managed with Bower (http://bower.io/) > see bower.json
+Project compiles with the help of Brunch (http://brunch.io/). Brunch requires nodeJS (http://nodejs.org/)  
+Build dependencies are managed with brunch via NPM (comes with nodeJS) > see package.json  
+Project dependencies are managed with Bower (http://bower.io/) > see bower.json  
 
-Current configuration takes all js/coffee files in app, and output them in /public/javascripts/app.js. It takes too all js/coffee files in /vendor and /bower_components and outputs them in /public/javascripts/vendor.js. Current conf ouputs too associated .map files (production mode does not).
-All css and stylus files are compiled/copied in /public/stylesheets/app.css (with its associated .map file, excpet in prod mode).
-All files from /app/assets are copied in /public (as fonts and images).
-
-Please see config.coffee for details
-
-
+Current configuration takes all js/coffee files in app, and output them in /public/javascripts/app.js. It takes too all js/coffee files in /vendor and /bower_components and outputs them in /public/javascripts/vendor.js. Current conf ouputs too associated .map files (production mode does not).  
+All css and stylus files are compiled/copied in /public/stylesheets/app.css (with its associated .map file, excpet in prod mode).  
+All files from /app/assets are copied in /public (as fonts and images).  
+  
+Please see config.coffee for details  
 
 
-// Go to project
-$user: cd project_path
-// Get build dependencies
-$user: npm install
-// Get project dependencies
-$user: bower install
-// Build project
-$user: brunch b
-// Start a server on port 3333 that watch for live changes
-$user: brunch w --server
 
-Project is now accessible from http://localhost:3333
+
+    // Go to project
+    $user: cd project_path
+    // Get build dependencies
+    $user: npm install
+    // Get project dependencies
+    $user: bower install
+    // Build project
+    $user: brunch b
+    // Start a server on port 3333 (default port) that watches for live changes
+    $user: brunch -w -s
+
+    // Project is now accessible from http://localhost:3333
 
 
 
