@@ -35,3 +35,4 @@ Project is now accessible from http://localhost:3333
 - Waypoints method calls made with jQuery Waypoints (http://imakewebthings.com/jquery-waypoints/)
 - Slide movement are made with jquery transition or $.animate() if transition are unsupported
 - Diaporama needs image resizing, i tried several methods (pure css resizing, jQuery resizing). In a performance purpose, I chose background images (with background-size : cover). In production, the real solution would be to use img tags with object-fit CSS3 property, and using a jQuery fallback (https://github.com/steveworkman/jquery-object-fit) for cross-browsers compatibility.
+- Added 60fps scroll trick : https://github.com/ryanseddon/60fps-scroll

@@ -307,14 +307,14 @@
 
 					showHide : function(image){
 						var _this = this;
-						image.transition({opacity: 1},1500);
+						image.transition({opacity: 1},2000);
 						if(image.is(':last-child')){
 							_this.showInfos(_this.target);
 						}else{
 							setTimeout(function(){
-								image.transition({opacity: 0},3000);
+								image.transition({opacity: 0},1500);
 								_this.showHide(image.next());
-							},2000);
+							},1500);
 							
 						}
 					},
@@ -328,7 +328,7 @@
 							setTimeout(function(){
 								bullet.addClass("show");
 								showBullet(bullet.next());
-							},1500);
+							},1000);
 						};
 
 						bullets.addClass("show");
