@@ -11,7 +11,7 @@ Project dependencies are managed with [Bower][4] -> see `bower.json`
   
 
 Current configuration takes all `javaScript` & `coffeeScript` files in `/app`, and output them in `/public/javascripts/app.js`. It takes too all `javaScript` & `coffeeScript` files in `/vendor` and `/bower_components` and outputs them in `/public/javascripts/vendor.js`. Current conf ouputs too associated `.map` files (production mode does not).  
-All `css` and `stylus` files are compiled/copied in `/public/stylesheets/app.css` (with its associated `.map` file, excpet in prod mode).
+All `css` and `stylus` files are compiled/copied in `/public/stylesheets/app.css` (with its associated `.map` file, expect in prod mode).
 All files from `/app/assets` are copied in `/public` (as fonts and images).  
   
 Please see `config.coffee` for details  
@@ -28,7 +28,7 @@ Build process :
     // Build project
     $user: brunch b
     // Start a server on port 3333 (default port) that watches for live changes
-    $user: brunch -w -s
+    $user: brunch w -s
 
     // Project is now accessible from http://localhost:3333
 
